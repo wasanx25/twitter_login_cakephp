@@ -5,9 +5,9 @@ cakephpによるtwitterログインのテンプレート
 ここにはないけど、app/Config/core.phpに
 「Consumer Key」と「Consumer Secret」と「Callback URL」を設定する。
 
-  `define('CONSUMER_KEY', 'Consumer Key');
-  define('CONSUMER_SECRET', 'Consumer Secret');
-  define('OAUTH_CALLBACK', 'Callback URL');`
+`define('CONSUMER_KEY', 'Consumer Key');  
+define('CONSUMER_SECRET', 'Consumer Secret');  
+define('OAUTH_CALLBACK', 'Callback URL');`  
 
 データベース構造は以下のような感じ
 
