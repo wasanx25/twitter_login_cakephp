@@ -1,8 +1,6 @@
 
 # twLogin
-cakephpによるtwitterログインのテンプレート  
-こんな感じに出来上がる  
-http://wataru0225.heteml.jp/twLogin/
+cakephpによるtwitterログインのテンプレート
 
 ここにはないけど、app/Config/core.phpに  
 「Consumer Key」と「Consumer Secret」と「Callback URL」を設定する。
