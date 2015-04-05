@@ -9,6 +9,13 @@
 /app/Model
 /app/Plugin
 /app/Test
+/app/View/Elements
+/app/View/Emails
+/app/View/Errors
+/app/View/Helper
+/app/View/Layouts
+/app/View/Pages
+/app/View/Scaffolds
 /app/webroot
 /lib
 /lib/Cake/Console/Templates/skel/tmp/
