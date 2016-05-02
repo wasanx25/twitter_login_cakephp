@@ -55,7 +55,7 @@ class TwittersController extends AppController {
         $user_data = $this->User->find("first", $params);
         // 未登録であれば、登録開始
         if (!$user_data) {
-        	$data = array(
+        	$user_data = array(
         		"User" => 
         		array(
 	        		"twitter_id" => $access_token["user_id"],
@@ -66,17 +66,13 @@ class TwittersController extends AppController {
 					'oauth_token_secret' => $access_token['oauth_token_secret']
 	        	)
         	);
-        	$this->User->save($data);
+        	$this->User->save($user_data);
         }
         // end
         
         // ログイン
-        $this->request->data['User'] = array(
-        	'oauth_token' => $access_token['oauth_token'],
-			'oauth_token_secret' => $access_token['oauth_token_secret']
-        );
+        $this->request->data['User'] = $user_data;
 
-        
         if ($this->Auth->login($this->request->data['User'])) {
         	$this->redirect("/users/success");
         }

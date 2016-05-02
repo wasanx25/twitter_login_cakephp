@@ -16,7 +16,9 @@ class UsersController extends AppController {
 
     public function success() {
     	// 本当はモデルに書いてね！　start
-        $oauth_token = $this->Auth->user("oauth_token");
+      $user = $this->Auth->user();
+      $oauth_token = $user["User"]["oauth_token"];
+      
     	$params = array(
     		"conditions" => array(
     			"User.oauth_token" => $oauth_token
