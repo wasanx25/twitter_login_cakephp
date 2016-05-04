@@ -1,10 +1,13 @@
 
 # twitter_login_cakephp
-twitter login for cakephp
+twitter login for cakephp plugin
 
 ## use
 require
 cakephp2.*
+
+setting
+https://apps.twitter.com/
 
 at app/Plugin
 ```
