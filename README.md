@@ -1,20 +1,28 @@
 
-# twLogin
-cakephpによるtwitterログインのテンプレート
+# twitter_login_cakephp
+twitter login for cakephp
 
-ここにはないけど、app/Config/core.phpに  
-「Consumer Key」と「Consumer Secret」と「Callback URL」を設定する。
+## use
 
+at app/Plugin
 ```
+git clone git://github.com/wataru0225/twitter_login_cakephp.git TwitterLogin
+```
+or
+```
+git submodule add git://github.com/wataru0225/twitter_login_cakephp.git TwitterLogin
+git submodule init
+git submodule update
+```
+
+```core.php
 define('CONSUMER_KEY', 'Consumer Key');
 define('CONSUMER_SECRET', 'Consumer Secret');
 define('OAUTH_CALLBACK', 'Callback URL');
 ```  
 
-データベース構造は以下のような感じ
-
-  ```
-  CREATE TABLE IF NOT EXISTS users (
+```DATABASE
+CREATE TABLE IF NOT EXISTS users (
   id int(11) NOT NULL AUTO_INCREMENT,
   twitter_id int(11) NOT NULL,
   account varchar(255) NOT NULL,
@@ -25,5 +33,5 @@ define('OAUTH_CALLBACK', 'Callback URL');
   created timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   modified timestamp NOT NULL,
   PRIMARY KEY (id)
-  ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2;
-  ```
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2;
+```
