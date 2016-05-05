@@ -1,6 +1,7 @@
 
 # twitter_login_cakephp
 twitter login for cakephp plugin
+Acknowledgement: テスト書かなくてすいません。。。
 
 ## use
 require
@@ -20,7 +21,7 @@ git submodule init
 git submodule update
 ```
 
-write core.php
+write core.php 
 ```
 define('CONSUMER_KEY', 'Twitter Consumer Key');
 define('CONSUMER_SECRET', 'Twitter Consumer Secret');
