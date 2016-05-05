@@ -10,10 +10,11 @@ class UsersController extends TwitterLoginAppController {
   public function index() {}
   
   public function success() {
-    $oauth_token = $this->Auth->user('oauth_token');
+    $user = $this->Auth->user();
+
   	$params = array(
   		'conditions' => array(
-  			'User.oauth_token' => $oauth_token
+  			'User.oauth_token' => $user['User']['oauth_token'];
       )
     );
     $user_data = $this->User->find('all', $params);

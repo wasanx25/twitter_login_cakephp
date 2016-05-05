@@ -28,12 +28,12 @@ class TwittersController extends TwitterLoginAppController {
       $url = $connection->getAuthorizeURL($request_token['oauth_token']);
       $this->redirect($url);
     } else {
-      $this->redirect('/');
+      $this->redirect('/twitter_login/users');
     }
   }
   
   public function callback() {
-  	CakeSession::start();
+    CakeSession::start();
     $connection = new TwitterOAuth(
       CONSUMER_KEY,
       CONSUMER_SECRET,
@@ -52,7 +52,7 @@ class TwittersController extends TwitterLoginAppController {
     if (!$this->check_exist_user($access_token)) $this->create_user($access_token, $content);
     
     $user_data = array(
-    	'oauth_token' => $access_token['oauth_token'],
+      'oauth_token' => $access_token['oauth_token'],
       'oauth_token_secret' => $access_token['oauth_token_secret']
     );
   
@@ -63,24 +63,23 @@ class TwittersController extends TwitterLoginAppController {
 
   private function check_exist_user($access_token) {
     $params = array(
-    	'conditions' => array(
-    		'oauth_token' => $access_token['oauth_token']
-    	)
+      'conditions' => array(
+        'oauth_token' => $access_token['oauth_token']
+      )
     );
     return $this->User->find('first', $params) ? true : false;
   }
 
   private function create_user($access_token, $content) {
     $data = array(
-      'User' => 
-        array(
-        	'twitter_id' => $access_token['user_id'],
-        	'account' => $access_token['screen_name'],
-        	'username' => $content['name'],
-        	'image' => $content['profile_image_url'],
-          'oauth_token' => $access_token['oauth_token'],
-          'oauth_token_secret' => $access_token['oauth_token_secret']
-        )
+      'User' => array(
+        'twitter_id' => $access_token['user_id'],
+        'account' => $access_token['screen_name'],
+        'username' => $content['name'],
+        'image' => $content['profile_image_url'],
+        'oauth_token' => $access_token['oauth_token'],
+        'oauth_token_secret' => $access_token['oauth_token_secret']
+      )
     );
     $this->User->save($data);
   }
