@@ -22,10 +22,15 @@ git submodule update
 
 write core.php
 ```
-define('CONSUMER_KEY', 'Consumer Key');
-define('CONSUMER_SECRET', 'Consumer Secret');
-define('OAUTH_CALLBACK', 'Callback URL');
+define('CONSUMER_KEY', 'Twitter Consumer Key');
+define('CONSUMER_SECRET', 'Twitter Consumer Secret');
+define('OAUTH_CALLBACK', 'Twitter Callback URL');
 ```  
+
+write bootstrap.php
+```
+CakePlugin::load('TwitterLogin', array('bootstrap' => false, 'routes' => false));
+```
 
 execute mysql query
 ```
